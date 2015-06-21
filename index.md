@@ -1,0 +1,95 @@
+---
+title       : Solar Activity Watcher
+subtitle    : the Sun as seen from space
+author      : giovanna14
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+theme       : neon
+hitheme     : tomorrow      # 
+url         :
+      assets: ./assets
+widgets     : [mathjax]     # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+
+--- 
+
+## Observing the Sun
+
+Observations of the Sun are carried out continuously from
+space to study the solar structure and activity.  
+
+The ESA/NASA mission <a href="http://sohowww.nascom.nasa.gov/">SOHO</a> (Solar and Heliospheric Observatory)
+was launched in 1995 and continues to collect data through 
+various instruments. 
+
+These data help experts predict "space weather"
+events such as magnetic storms that may affect human activities
+on Earth.
+
+We consider the following instruments:
+
+1. <a href="http://umbra.nascom.nasa.gov/eit/">EIT</a> is the Extreme
+Ultraviolet imaging Telescope and provides images of the Sun at wavelengths
+171, 195, 284, and 304 Angstrom.
+
+2. <a href="http://lasco-www.nrl.navy.mil/index.php">LASCO</a> is the
+Large Angle and Spectrometric Coronograph Experiment and provides
+images of the solar corona through 2 telescopes (C2 and C3). The
+view of the Sun itself is blocked.
+
+--- .class #id 
+
+## Solar Activity Watcher - a Shinyapp
+
+Solar Activity Watcher is a web-app based on 
+RStudio's Shiny package and hosted on the Shiny server:
+<a href=
+"https://giovanna-temporin.shinyapps.io/Solar_activity_watcher">Solar_activity_watcher</a>. 
+It acts as a user interface for
+accessing data products distributed through the SOHO 
+archive and the web-site of the LASCO team.
+
+<img src="assets/img/Screenshot1.png" width="570"></img><img src="assets/img/Screenshot3.png" width="400"></img>
+
+---
+
+### SOHO latest images of the Sun
+
+On the side-panel, the user selects 1 to 6 possible EIT and/or
+LASCO latest images and hits the `Submit request` button.
+
+The app calculates an HTML archive request for 
+each selected image name, downloads the images and displays them on the main panel.
+
+For example, if the user selects `EIT 284`, the following archive request is calculated:
+
+[1] "http://ssa.esac.esa.int/ssa/aio/product-action?RETRIEVALTYPE=LATEST_POSTCARD&FILTER=284&INSTRUMENT=EIT&RESOLUTION=512"
+
+---
+
+### Daily movies of the solar corona
+
+The user selects from the calendar on the side-panel
+a date for the LASCO daily movies to be displayed. 
+
+The app calculates the URL of the movies based on the date, downloads them
+and displays them on the main panel. 
+
+For example, for yesterday's 
+date the following movie URLs are calculated:
+
+[1] "http://lasco-www.nrl.navy.mil/daily_mpg/150620_c2.mpg"
+[2] "http://lasco-www.nrl.navy.mil/daily_mpg/150620_c3.mpg"
+
+
+
+#### Acknowledgments
+
+This application makes use of publicly available data products made
+accessible by the ESAC Team through the <a href=
+"http://ssa.esac.esa.int/ssa/aio/html/home_main.shtml">SOHO 
+Archive Inter-Operability Subsystem</a> and of data products from the 
+<a href="http://lasco-www.nrl.navy.mil/index.php">LASCO Team</a>.
+
