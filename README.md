@@ -1,6 +1,6 @@
 # Solar Activity Watcher deck
 
-This repository cotains a slide deck about the
+This repository contains a slide deck about the
 RStudio's Shiny app `Solar_activity_watcher`
 that was created as part of the assignments for
 the course "Developing Data Products" by the
